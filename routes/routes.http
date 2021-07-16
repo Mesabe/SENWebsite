@@ -1,0 +1,15 @@
+GET http://localhost:3001/jedi/view
+###
+GET http://localhost:3001/jedi/add
+###
+POST http://localhost:3001/jedi/add
+content-type: application/json
+###
+GET http://localhost:3001/jedi/update/:jedi_id
+###
+PATCH http://localhost:3001/jedi/update/:jedi_id
+content-type: application/json
+###
+GET http://localhost:3001/jedi/delete/:jedi_id
+###
+DELETE http://localhost:3001/jedi/delete/:jedi_id

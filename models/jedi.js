@@ -9,11 +9,14 @@ const jediSchema = new mongoose.Schema({
 
     force: {
         type: Number,
+        min: 1,
+        max: 10,
         required: true,
         
     },
     position: {
         type: String,
+        select: ['Grand Master','Jedi Master','Jedi Knight','Padowan'],
         default: 'Padowan',
         
     }
