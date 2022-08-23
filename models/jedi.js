@@ -23,4 +23,4 @@ const jediSchema = new mongoose.Schema({
 
 })
 
-module.exports = mongoose.model('Users',jediSchema)
+module.exports = mongoose.model('Jedi',jediSchema)

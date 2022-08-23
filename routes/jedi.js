@@ -30,14 +30,14 @@ jediRouter.get('/view/:jedi_id', async (req, res) => {
 
 
 jediRouter.get('/add', (req, res) => {
-    res.render('add,ejs')
+    
 });
 
 jediRouter.post('/add', async (req, res) => {
     const jedi = new Jedi({
-        name : req.params.txtname,
-        force: req.params.txtforce,
-        position: req.params.txtpositions
+        name : 'Qui-Gon Jin',
+        force: 6,
+        position: 'Jedi Master'
     })
     try {
         let newJedi = await jedi.save();
@@ -49,15 +49,8 @@ jediRouter.post('/add', async (req, res) => {
 });
 
 
-jediRouter.get('/update/:jedi_id', async (req, res) => {
-    const id = req.params.jedi_id;
-
-   const updated = await Jedi.findById(id)
-   res.render('update.ejs',{jediName:Jedi.name,jediForce:Jedi.force,jediRank:Jedi.position})
-});
-
 jediRouter.patch('/update/:jedi_id', async (req, res) => {
-    const update = {name: req.params.txtname,surname: req.params.txtsurname,date: req.params.releaseDate}
+    const update = {name: 'Qui-Gon Jin',force: 7,position: 'Jedi Master'}
     const id = req.params.jedi_id;
  
     const updated = await User.findOneAndUpdate(id,update,{new: true})
@@ -72,13 +65,6 @@ jediRouter.patch('/update/:jedi_id', async (req, res) => {
      }
 });
 
-
-jediRouter.get('/delete/:jedi_id', async (req, res) => {
-    const id = req.params.jedi_id;
-
-   const deleted = await Jedi.findById(id)
-    res.render('delete.ejs',{jediName:Jedi.name,jediForce:Jedi.force,jediRank:Jedi.position})
-});
 
 jediRouter.delete('/delete/:jedi_id', async (req, res) => {
     const id = req.params.jedi_id;
